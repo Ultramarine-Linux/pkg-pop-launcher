@@ -14,7 +14,9 @@ License:        MPLv2.0
 URL:            https://crates.io/crates/pop-launcher
 Source:         https://github.com/pop-os/launcher/archive/refs/tags/%{version}.tar.gz
 Source1:        vendor.tar
+Source2:        cargo-config.tar.gz
 Patch:          0001-Copy-instead-of-symlink.patch
+Patch1:         0001-Remove-frozen-lock.patch
 
 Provides:       rust-%{crate} = 1.2.1
 
@@ -34,10 +36,13 @@ Library for writing plugins and frontends for pop-launcher.}
 %cargo_prep
 #just vendor
 cp %{SOURCE1} vendor.tar
+#tar -xf vendor.tar
+tar -xvf %{SOURCE2}
 #%generate_buildrequires
 #%cargo_generate_buildrequires
 
 %build
+
 just vendor=1
 
 %install
