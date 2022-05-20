@@ -13,6 +13,7 @@ Summary:        Library for writing plugins and frontends for pop-launcher
 License:        MPLv2.0
 URL:            https://crates.io/crates/pop-launcher
 Source:         https://github.com/pop-os/launcher/archive/refs/tags/%{version}.tar.gz
+Source1:        vendor.tar
 Patch:          0001-Copy-instead-of-symlink.patch
 
 Provides:       rust-%{crate} = 1.2.1
@@ -31,7 +32,8 @@ Library for writing plugins and frontends for pop-launcher.}
 %prep
 %autosetup -n launcher-%{version_no_tilde}
 %cargo_prep
-just vendor
+#just vendor
+cp %{SOURCE1} vendor.tar
 #%generate_buildrequires
 #%cargo_generate_buildrequires
 
