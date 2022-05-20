@@ -1,0 +1,3 @@
+[package]
+build_method = "mock"
+spec = "pop-launcher.spec"
