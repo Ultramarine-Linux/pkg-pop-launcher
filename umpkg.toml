@@ -1,3 +1,4 @@
 [package]
 build_method = "mock"
 spec = "pop-launcher.spec"
+git_repo = "https://github.com/Ultramarine-Linux/pop-launcher.git"

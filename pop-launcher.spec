@@ -31,12 +31,11 @@ Library for writing plugins and frontends for pop-launcher.}
 %prep
 %autosetup -n launcher-%{version_no_tilde}
 %cargo_prep
-
+just vendor
 #%generate_buildrequires
 #%cargo_generate_buildrequires
 
 %build
-just vendor
 just vendor=1
 
 %install
